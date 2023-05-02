@@ -21,12 +21,16 @@ void Token::print() const {
     else if( isDivisionOperator() )  std::cout << " / " ;
     else if( isName() ) std::cout << getName();
     else if( isWholeNumber() ) std::cout << getWholeNumber();
-    else if( isEqualityOperator()) std:: cout << " ==";
-    else if( isNotEqualOperator()) std:: cout << "!=";
-    else if( isGreaterThanOperator()) std::cout << ">";
-    else if( isGreaterThanOrEqualOperator()) std::cout << ">=";
-    else if( isLessThanOperator()) std::cout << "<";
-    else if( isLessThanOrEqualOperator()) std::cout << "<=";
+    else if( isEqualOperator() ) std:: cout << " ==";
+    else if( isNotEqualOperator() ) std:: cout << "!=";
+    else if( isGreaterThanOperator() ) std::cout << ">";
+    else if( isGreaterThanOrEqualToOperator() ) std::cout << ">=";
+    else if( isLessThanOperator() ) std::cout << "<";
+    else if( isLessThanOrEqualToOperator() ) std::cout << "<=";
+    //Could we do this?:
+    //else if(isRelationalOperator() ) std::cout << getStringForRelationalOperator();
+
+    //Cody: Adam added isKeyword
     else if( isKeyword()) std::cout << getName();
     else std::cout << "Uninitialized token.\n";
 }

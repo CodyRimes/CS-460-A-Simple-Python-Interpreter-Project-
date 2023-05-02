@@ -1,0 +1,4 @@
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" -S "C:\Users\Cody\Desktop\Code Repositories From GitHub\CS-460-A-Simple-Python-Interpreter-Project-" -B "C:\Users\Cody\Desktop\Code Repositories From GitHub\CS-460-A-Simple-Python-Interpreter-Project-\cmake-build-debug"
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Cody/Desktop/Code Repositories From GitHub/CS-460-A-Simple-Python-Interpreter-Project-/cmake-build-debug

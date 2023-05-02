@@ -5,6 +5,7 @@
 
 #include<iostream>
 #include "ExprNode.hpp"
+//ExprNode is a base class that we literally never use directly. We only use ExprNode pointers so that we can employ polymorphism to have code which works on all ExprNode subclasses and dynamically behaves according to subclass traits at runtime. We are always using the evaluate method of subclasses because every ExprNode subclass must define their own evaluate method (because it is declared a virtual method in ExprNode). If we aren't evaluating an atomic value (a variable, a literal number, a literal string, etc.) then we are using the InfixExprNode evaluate method.
 // STEP 3 RENAME ArithExpr to ExprNode
 // ExprNode
 ExprNode::ExprNode(Token token): _token{token} {}
@@ -19,6 +20,7 @@ ExprNode *&InfixExprNode::left() { return _left; }
 ExprNode *&InfixExprNode::right() { return _right; }
 
 int InfixExprNode::evaluate(SymTab &symTab) {
+    // Evaluates an infix expression using a post-order traversal of the expression tree.
     int lValue = left()->evaluate(symTab);
     int rValue = right()->evaluate(symTab);
     if(debug)
@@ -33,15 +35,16 @@ int InfixExprNode::evaluate(SymTab &symTab) {
         return lValue / rValue; // division by zero?
     else if (token().isModuloOperator())
         return lValue % rValue;
+    //Cody: Looks like Adam completed part of Step 4 here and added this functionality to the expression node class function
     else if (token().isLessThanOperator())
         return lValue < rValue;
-    else if (token().isLessThanOrEqualOperator())
+    else if (token().isLessThanOrEqualToOperator())
         return lValue <= rValue;
     else if (token().isGreaterThanOperator())
         return lValue > rValue;
-    else if (token().isGreaterThanOrEqualOperator())
+    else if (token().isGreaterThanOrEqualToOperator())
         return lValue >= rValue;
-    else if (token().isEqualityOperator())
+    else if (token().isEqualOperator())
         return lValue == rValue;
     else if (token().isNotEqualOperator())
         return lValue != rValue;

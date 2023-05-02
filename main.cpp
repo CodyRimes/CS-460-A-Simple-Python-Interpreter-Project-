@@ -59,11 +59,15 @@ int main(int argc, char *argv[]) {
     Parser parser(tokenizer);
     Statements *statements = parser.statements();
     Token lastToken = tokenizer.getToken();
+
     if (!lastToken.eof()) {
         std::cout << "Unexpected token in input." << std::endl;
         lastToken.print();
         exit(1);
     }
+
+
+
     SymTab symTab;
 
     statements->print();
