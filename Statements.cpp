@@ -182,6 +182,7 @@ void ForStatement::print()
     //Use a break line for more readability
     //Use ExprNode's print function to print the contents of our private member ExprNode variable
     _conditionalExpressionInForLoop->print();
+    std::cout << std::endl;
 
     //Use AssignmentStatement's print function to print the contents of our private member AssignmentStatement variable
     _updateToInitialAssignmentExpression->print();

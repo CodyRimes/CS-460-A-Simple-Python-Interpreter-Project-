@@ -166,7 +166,6 @@ ForStatement *Parser::forStatement()
         die("Parser::forStatement", "Expected a semi-colon \";\" , instead got", firstSemiColon);
 
     //After our first semi-colon should be a relational expression, so lets assign something that will drill down and figure out what that expression is
-    //JOE IS THIS AN INFIX EXPRESSION? THIS SHOULD BE ASSIGNED TO RELATIONAL EXPRESSION CORRECT?
     ExprNode* ourRelationalExpression = relationalExpression();
 
     //After our relational expression should come another semi-colon to terminate it. Lets pick up another token and analyze it
@@ -382,6 +381,7 @@ ExprNode *Parser::primary() {
 }
 
 //Cody: Looks like Adam added this functionality
+//code is no longer needed, commented out code - May 2nd 2023 Cody
 /*
 ExprNode *Parser::relationalExpr() {
     // This function parses the grammar rules:
